@@ -1,75 +1,103 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "tt-hero": {
+      "type": "tt-hero",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "slide2": {
+          "type": "slide",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/premium_photo-1679765934200-d1cb3153c631.avif",
+            "image_mobile": "shopify://shop_images/premium_photo-1683134371956-256b6eae334e.avif",
+            "label": "Welcome To TenTwenty Farms",
+            "heading": "Quality Products\nFor Every Home"
           }
         },
-        "button": {
-          "type": "buttons",
+        "slide1": {
+          "type": "slide",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/photo-1785076315182-98f6751997ed.avif",
+            "image_mobile": "shopify://shop_images/photo-1776722203002-d5ea06857012.avif",
+            "label": "Welcome To TenTwenty Farms",
+            "heading": "From Our Farms\nTo Your Hands"
+          }
+        },
+        "slide_EjCBaH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/photo-1708796705570-33fd29ef67d0.avif",
+            "image_mobile": "shopify://shop_images/premium_photo-1675798983878-604c09f6d154.avif",
+            "label": "Welcome To TenTwenty Farms",
+            "heading": "From Our Farms To Your Hands"
+          }
+        },
+        "slide3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/photo-1624668430039-0175a0fbf006.avif",
+            "image_mobile": "shopify://shop_images/premium_photo-1678652879435-5d1de0d521d8.avif",
+            "label": "Welcome To TenTwenty Farms",
+            "heading": "Fresh From\nThe Source"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "slide2",
+        "slide1",
+        "slide_EjCBaH",
+        "slide3"
+      ],
+      "settings": {}
+    },
+    "tt-quality": {
+      "type": "tt-quality",
+      "blocks": {
+        "slide1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/premium_photo-1675798983878-604c09f6d154.avif",
+            "name": "Client 1",
+            "location": "Dubai, United Arab Emirates"
+          }
+        },
+        "slide2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/premium_photo-1663047551288-0f67e968022b.avif",
+            "name": "Client 2",
+            "location": "Abu Dhabi, United Arab Emirates"
+          }
+        },
+        "slide3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/photo-1662585445239-6906fa73d9f5.avif",
+            "name": "Client 3",
+            "location": "London, United Kingdom"
+          }
+        }
+      },
+      "block_order": [
+        "slide1",
+        "slide2",
+        "slide3"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "title": "Quality Products",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "tt-hero",
+    "tt-quality"
   ]
 }

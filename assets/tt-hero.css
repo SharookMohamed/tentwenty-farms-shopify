@@ -1,0 +1,248 @@
+.tt-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #1a2a1a;
+}
+
+.tt-hero__slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1440/900;
+}
+
+.tt-hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.tt-hero__slide.is-active {
+  opacity: 1;
+}
+
+/* Zoom effect on active slide image */
+.tt-hero__slide .tt-hero__bg {
+  transform: scale(1.08);
+  transition: transform 6s ease;
+}
+
+.tt-hero__slide.is-active .tt-hero__bg {
+  transform: scale(1);
+}
+
+.tt-hero__bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.tt-hero__bg--placeholder {
+  width: 100%;
+  height: 100%;
+  background: #2a4a2a;
+}
+
+.tt-hero__slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.05) 100%);
+  z-index: 1;
+}
+
+/* Text content */
+.tt-hero__content {
+      position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    left: 135px;
+    left: 7%;
+    color: #fff;
+    z-index: 3;
+    max-width: 620px;
+}
+
+/* Text reveal mask animation */
+.tt-hero__label-wrap,
+.tt-hero__heading-wrap {
+  overflow: hidden;
+}
+
+.tt-hero__label {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin: 0 0 16px;
+  display: block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+              opacity 0.8s ease 0.1s;
+}
+
+.tt-hero__heading {
+  font-size: min(4.45vw, 64px);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.12;
+  color: #ffffff;
+  margin: 0;
+  white-space: pre-line;
+  transform: translateY(60px);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+              opacity 0.9s ease 0.3s;
+}
+
+.tt-hero__slide.is-active .tt-hero__label {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.tt-hero__slide.is-active .tt-hero__heading {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Reset text when slide leaves */
+.tt-hero__slide:not(.is-active) .tt-hero__label,
+.tt-hero__slide:not(.is-active) .tt-hero__heading {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: none;
+}
+
+/* Controls */
+.tt-hero__controls {
+  position: absolute;
+  bottom: 60px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 1;
+  transform: translateY(-50%);
+  left: 7%;
+  max-width: 620px;
+}
+
+/* Thumbnail */
+.tt-hero__thumb-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+
+    width: 67%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+}
+
+.tt-hero__thumb {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+}
+
+/* Animated border using SVG-style stroke */
+.tt-hero__thumb-border {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.tt-hero__thumb-border svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tt-hero__thumb-border rect {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  transition: stroke-dashoffset linear;
+}
+
+/* Thumbnail image */
+.tt-hero__thumb-inner {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+  z-index: 1;
+  transition: background-image 0.3s ease;
+  display: flex !important;
+      width: 67%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    margin: auto;
+}
+
+/* Counter */
+.tt-hero__counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tt-hero__counter-line {
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: rgba(255,255,255,0.5);
+}
+
+/* Next button */
+.tt-hero__next {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 6px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tt-hero__next:hover { opacity: 1; }
+
+@media (max-width: 768px) {
+  .tt-hero__content {
+    left: 24px;
+        top: 45%;
+        max-width: calc(100% - 48px);
+  }
+  .tt-hero__controls {
+    left: 24px;
+  }
+  .tt-hero__heading {
+    font-size: 11.13vw;
+  }
+  .tt-hero__slides {
+    aspect-ratio: 414/820;
+  }
+}

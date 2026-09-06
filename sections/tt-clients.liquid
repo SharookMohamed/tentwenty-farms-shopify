@@ -1,0 +1,58 @@
+<section class="tt-clients" id="tt-clients">
+  <div class="tt-clients__inner">
+    <div class="tt-clients__header">
+      <h2 class="tt-clients__title">{{ section.settings.title | default: 'Our Clients' }}</h2>
+      <p class="tt-clients__desc">{{ section.settings.description | default: 'We work with leading brands and organizations across the globe.' }}</p>
+    </div>
+
+    <div class="tt-clients__grid">
+      {% for block in section.blocks %}
+        <div class="tt-clients__item" {{ block.shopify_attributes }}>
+          {% if block.settings.image %}
+            <div class="tt-clients__img-wrap">
+              <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.name }}" class="tt-clients__img">
+            </div>
+          {% else %}
+            <div class="tt-clients__img-wrap tt-clients__img-wrap--placeholder"></div>
+          {% endif %}
+          <div class="tt-clients__info">
+            <h3 class="tt-clients__name">{{ block.settings.name | default: 'Client Name' }}</h3>
+            <p class="tt-clients__location">{{ block.settings.location | default: 'Dubai, United Arab Emirates' }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Clients",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Our Clients" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "We work with leading brands and organizations across the globe." }
+  ],
+  "blocks": [
+    {
+      "type": "client",
+      "name": "Client",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "name", "label": "Client Name", "default": "Client 1" },
+        { "type": "text", "id": "location", "label": "Location", "default": "Dubai, United Arab Emirates" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clients",
+      "blocks": [
+        { "type": "client", "settings": { "name": "Client 1", "location": "Dubai, United Arab Emirates" } },
+        { "type": "client", "settings": { "name": "Client 2", "location": "Abu Dhabi, United Arab Emirates" } },
+        { "type": "client", "settings": { "name": "Client 3", "location": "London, United Kingdom" } },
+        { "type": "client", "settings": { "name": "Client 4", "location": "New York, United States" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

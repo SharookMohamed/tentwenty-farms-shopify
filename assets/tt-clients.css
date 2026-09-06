@@ -1,0 +1,114 @@
+.tt-clients {
+  padding: 100px 60px;
+  background: #fff;
+}
+
+.tt-clients__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tt-clients__header {
+  max-width: 600px;
+  margin-bottom: 60px;
+}
+
+.tt-clients__title {
+  font-family: var(--font-primary);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.tt-clients__title.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tt-clients__desc {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
+}
+
+.tt-clients__desc.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tt-clients__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.tt-clients__item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tt-clients__item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tt-clients__img-wrap {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.tt-clients__img-wrap--placeholder {
+  background: linear-gradient(135deg, #e8f0e8, #c8dcc8);
+}
+
+.tt-clients__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.tt-clients__item:hover .tt-clients__img {
+  transform: scale(1.05);
+}
+
+.tt-clients__name {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 6px;
+}
+
+.tt-clients__location {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .tt-clients__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .tt-clients { padding: 60px 24px; }
+  .tt-clients__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+@media (max-width: 480px) {
+  .tt-clients__grid { grid-template-columns: 1fr; }
+}

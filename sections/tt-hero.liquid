@@ -1,0 +1,85 @@
+<section class="tt-hero" id="tt-hero">
+  <div class="tt-hero__slides">
+    {% for block in section.blocks %}
+      <div class="tt-hero__slide {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+        {% if block.settings.image %}
+          <picture>
+            {% if block.settings.image_mobile %}
+              <source media="(max-width: 768px)" srcset="{{ block.settings.image_mobile | image_url: width: 828 }}">
+            {% endif %}
+            <img
+              src="{{ block.settings.image | image_url: width: 1920 }}"
+              alt="{{ block.settings.heading }}"
+              class="tt-hero__bg"
+              width="1440"
+              height="960"
+              {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+            >
+          </picture>
+        {% else %}
+          <div class="tt-hero__bg tt-hero__bg--placeholder"></div>
+        {% endif %}
+        <div class="tt-hero__content">
+          <div class="tt-hero__label-wrap">
+            <span class="tt-hero__label">{{ block.settings.label | default: 'Welcome To TenTwenty Farms' }}</span>
+          </div>
+          <div class="tt-hero__heading-wrap">
+            <h1 class="tt-hero__heading">{{ block.settings.heading | default: 'From Our Farms To Your Hands' }}</h1>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="tt-hero__controls">
+    <div class="tt-hero__thumb-wrap">
+      <div class="tt-hero__thumb">
+        <div class="tt-hero__thumb-inner" id="tt-thumb-inner"></div>
+        <div class="tt-hero__thumb-border">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="62" height="62" rx="0"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="tt-hero__counter">
+      <span class="tt-hero__counter-current">01</span>
+      <span class="tt-hero__counter-line"></span>
+      <span class="tt-hero__counter-total">04</span>
+    </div>
+    <button class="tt-hero__next" aria-label="Next slide">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14M13 6l6 6-6 6" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Slider",
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Desktop Image (1440x960)" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Mobile Image (414x812)" },
+        { "type": "text", "id": "label", "label": "Small Label", "default": "Welcome To TenTwenty Farms" },
+        { "type": "textarea", "id": "heading", "label": "Heading", "default": "From Our Farms To Your Hands" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Slider",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}

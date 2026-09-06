@@ -1,0 +1,117 @@
+:root {
+  --font-primary: 'Work Sans', sans-serif;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #1a1a1a;
+  --color-text-light: #666666;
+  --color-bg: #ffffff;
+  --color-border: #e5e5e5;
+  --transition-base: 0.3s ease;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+.tt-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--color-white);
+  padding: 20px 33px 20px 40px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  margin: 20px;
+}
+.tt-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tt-header__nav a {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+  transition: opacity var(--transition-base);
+}
+.tt-header__nav a:hover {
+  opacity: 0.6;
+}
+.tt-header__cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: #221F20;
+  text-decoration: none;
+  border: 1px solid #000;
+  padding: 3px 17px;
+  transition: background var(--transition-base), color var(--transition-base);
+  white-space: nowrap;
+  background: #FFFCFA;
+}
+.tt-header__cta:hover {
+  background: var(--color-text);
+  color: var(--color-white);
+}
+.tt-header__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.tt-header__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+}
+/* #MainContent { padding-top: 70px; } */
+@media (max-width: 768px) {
+  .tt-header {
+    padding: 0 20px;
+    margin: 0;
+  }
+  .tt-header__nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid var(--color-border);
+    gap: 16px;
+  }
+  .tt-header__nav.is-open {
+    display: flex;
+  }
+  .tt-header__hamburger {
+    display: flex;
+    background: #F9F4EE;
+    padding: 10px;
+  }
+  .tt-header__cta {
+  margin: 0 auto 0 0;
+}
+}

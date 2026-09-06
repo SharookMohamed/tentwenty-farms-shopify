@@ -1,0 +1,66 @@
+<section class="tt-quality" id="tt-quality">
+  <div class="tt-quality__intro">
+    <h2 class="tt-quality__title">{{ section.settings.title | default: 'Quality Products' }}</h2>
+    <p class="tt-quality__desc">{{ section.settings.description | default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' }}</p>
+  </div>
+
+  <div class="tt-quality__carousel-wrap" id="tt-quality-wrap">
+    <div class="tt-quality__carousel" id="tt-quality-carousel">
+      {% for block in section.blocks %}
+        <div class="tt-quality__card" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <div class="tt-quality__card-inner">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.name }}" class="tt-quality__img" draggable="false">
+            {% else %}
+              <div class="tt-quality__img--placeholder"></div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="tt-quality__client-info">
+    {% for block in section.blocks %}
+      <div class="tt-quality__client" data-index="{{ forloop.index0 }}">
+        <h3 class="tt-quality__client-name">{{ block.settings.name | default: 'Client ' | append: forloop.index }}</h3>
+        <p class="tt-quality__client-location">{{ block.settings.location | default: 'Dubai, United Arab Emirates' }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Custom cursor -->
+<div class="tt-quality__cursor" id="tt-quality-cursor">Drag</div>
+
+{% schema %}
+{
+  "name": "Quality Products",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "Quality Products" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "name", "label": "Client Name", "default": "Client 1" },
+        { "type": "text", "id": "location", "label": "Location", "default": "Dubai, United Arab Emirates" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quality Products",
+      "blocks": [
+        { "type": "slide", "settings": { "name": "Client 1", "location": "Dubai, United Arab Emirates" } },
+        { "type": "slide", "settings": { "name": "Client 2", "location": "Abu Dhabi, United Arab Emirates" } },
+        { "type": "slide", "settings": { "name": "Client 3", "location": "London, United Kingdom" } },
+        { "type": "slide", "settings": { "name": "Client 4", "location": "New York, United States" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
