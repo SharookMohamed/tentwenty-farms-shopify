@@ -31,7 +31,7 @@
   font-family: 'Work Sans', sans-serif;
   font-size: min(1.675vw, 24px);
   line-height: 1.7;
-  color: #7A7777;
+  color: #7a7777;
   margin: 0;
   opacity: 0;
   transform: translateY(20px);
@@ -45,12 +45,12 @@
 
 /* Carousel */
 .tt-quality__carousel-wrap {
- position: relative;
-    width: 100%;
-    height: fit-content;
-    aspect-ratio: 1440 / 620;
-    overflow: hidden;
-    cursor: none;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  aspect-ratio: 1440 / 620;
+  overflow: hidden;
+  cursor: none;
 }
 
 .tt-quality__carousel {
@@ -61,15 +61,14 @@
 
 /* Cards */
 .tt-quality__card {
-position: absolute;
-    top: 210px;
-    width: 30%;
-    height: auto;
-    aspect-ratio: 434 / 620;
-    max-width: 440px;
-    margin-top: -210px;
-    will-change: transform;
-    transition: transform .6s cubic-bezier(.25, .46, .45, .94), opacity .6s ease;
+  position: absolute;
+  top: 210px;
+  width: 30%;
+  height: auto;
+  aspect-ratio: 434 / 620;
+  max-width: 440px;
+  will-change: transform;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease;
 }
 
 .tt-quality__card-inner {
@@ -109,7 +108,7 @@ position: absolute;
   font-weight: 500;
   color: #1a1a1a;
   pointer-events: none;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
   z-index: 9999;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.2s ease, opacity 0.2s ease;
@@ -160,36 +159,37 @@ position: absolute;
 
 .tt-quality__client-location {
   font-family: Work Sans, sans-serif;
-    font-size: min(1.675vw, 24px);
-    line-height: 1.7;
-    color: #7a7777;
+  font-size: min(1.675vw, 24px);
+  line-height: 1.7;
+  color: #7a7777;
 }
 
 @media (max-width: 768px) {
-  .tt-quality__intro{
-    margin: 0 auto;
+  .tt-quality__intro {
+    margin: 0 auto 30px;
   }
-  .tt-quality { padding: 60px 0; }
+  .tt-quality {
+    padding: 60px 0;
+  }
   .tt-quality__carousel-wrap {
-    height: 360px;
+    aspect-ratio: 414 / 332;
     cursor: grab;
   }
   .tt-quality__card {
-    width: 200px;
+    width: 52%;
     height: 300px;
-    margin-top: -150px;
   }
-    .tt-quality__title {
+  .tt-quality__title {
     font-size: min(7vw, 30px);
     margin: 0 0 20px;
-}
-.tt-quality__desc,
-.tt-quality__client-location {
+  }
+  .tt-quality__desc,
+  .tt-quality__client-location {
     font-size: min(4vw, 16px);
-}
-.tt-quality__client-name {
-  font-size: min(6vw, 24px);
-}
+  }
+  .tt-quality__client-name {
+    font-size: min(6vw, 24px);
+  }
 }
 
 .tt-quality__card--hidden {

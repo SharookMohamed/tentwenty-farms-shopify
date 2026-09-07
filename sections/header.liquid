@@ -1,23 +1,28 @@
 <header class="tt-header" role="banner">
   <nav aria-label="Main navigation">
     <ul class="tt-header__nav" id="tt-nav">
-      <li><a href="/pages/about">About</a></li>
-      <li><a href="/blogs/news">News</a></li>
-      <li><a href="/pages/services">Services</a></li>
-      <li><a href="/pages/our-team">Our Team</a></li>
-      <li><a href="/collections/all">Make Enquiry</a></li>
+      {% for link in linklists[section.settings.menu].links %}
+        <li>
+          <a href="{{ link.url }}" {% if link.active %}class="is-active"{% endif %}>
+            {{ link.title }}
+          </a>
+        </li>
+      {% endfor %}
     </ul>
   </nav>
-  <a href="/pages/contact" class="tt-header__cta">
-    Contact us
+
+  <a href="{{ section.settings.cta_url }}" class="tt-header__cta">
+    {{ section.settings.cta_text | default: 'Contact us' }}
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </a>
+
   <button class="tt-header__hamburger" id="tt-hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
+
 <script>
   document.getElementById('tt-hamburger').addEventListener('click', function() {
     var nav = document.getElementById('tt-nav');
@@ -25,9 +30,27 @@
     this.setAttribute('aria-expanded', isOpen);
   });
 </script>
+
 {% schema %}
 {
   "name": "Header",
-  "settings": []
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation Menu"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Contact us"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button URL"
+    }
+  ]
 }
 {% endschema %}
